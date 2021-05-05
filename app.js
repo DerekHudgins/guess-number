@@ -23,30 +23,18 @@ guessButton.addEventListener('click', () =>{
         loss++;
     }
     if (gNumber > rightNumber){
-        displayTooHigh.style.display = 'block';
-        displayTooLow.style.display = 'none';
-        displayWin.style.display = 'none';
+        displayTooHigh.textContent = `you guessed  ${gNumber} it is high`;
     }
     if (gNumber < rightNumber){
-        displayTooLow.style.display = 'block';
-        displayTooHigh.style.display = 'none';
-        displayWin.style.display = 'none';
+        displayTooLow.textContent = `you guessed  ${gNumber} it is low`;
     }
     if (gNumber === rightNumber){
-        displayTooLow.style.display = 'none';
-        displayTooHigh.style.display = 'none';
-        displayWin.style.display = 'block';
+        displayUserOutcome.textContent = `You have gotten the correct anwser ${win} / ${loss}`;
     }
-    displayUserOutcome.textContent = `You have gotten the correct anwser ${win} / ${loss}`;
+    
+    
 });
 
 resetBtn.addEventListener('click', () =>{  
-    win = 0;
-    loss = 0;
-    rightNumber = Math.ceil(Math.random() * 20);
-    displayTooLow.style.display = 'none';
-    displayTooHigh.style.display = 'none';
-    displayWin.style.display = 'none';
-    displayUserOutcome.textContent = `You have gotten the correct anwser ${win} / ${loss}`;
-
+    location.reload();
 });
