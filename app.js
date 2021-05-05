@@ -6,6 +6,7 @@ const displayTooHigh = document.getElementById ('too-high');
 const displayTooLow = document.getElementById ('too-low');
 const displayWin = document.getElementById ('win');
 const displayUserOutcome = document.getElementById ('display-outcome');
+const resetBtn = document.getElementById ('reset-btn');
 
 // initialize state
 let win = 0;
@@ -37,4 +38,15 @@ guessButton.addEventListener('click', () =>{
         displayWin.style.display = 'block';
     }
     displayUserOutcome.textContent = `You have gotten the correct anwser ${win} / ${loss}`;
+});
+
+resetBtn.addEventListener('click', () =>{  
+    win = 0;
+    loss = 0;
+    rightNumber = Math.ceil(Math.random() * 20);
+    displayTooLow.style.display = 'none';
+    displayTooHigh.style.display = 'none';
+    displayWin.style.display = 'none';
+    displayUserOutcome.textContent = `You have gotten the correct anwser ${win} / ${loss}`;
+
 });
