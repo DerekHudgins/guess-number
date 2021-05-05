@@ -6,13 +6,14 @@ const displayTooHigh = document.getElementById ('too-high');
 const displayTooLow = document.getElementById ('too-low');
 const displayWin = document.getElementById ('win');
 const displayUserOutcome = document.getElementById ('display-outcome');
+
 // initialize state
 let win = 0;
 let loss = 0;
+let rightNumber = Math.ceil(Math.random() * 20);
 // set event listeners to update state and DOM
 
 guessButton.addEventListener('click', () =>{
-    let rightNumber = Math.ceil(Math.random() * 20);
     const inputNumber = document.getElementById ('user-input').value;
     const gNumber = Number(inputNumber);
     if (userGuess(gNumber, rightNumber) === true){
