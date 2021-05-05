@@ -1,3 +1,6 @@
-export function userGuess (userInput) {
-    if inputNumber is >=== to 
+export function userGuess(userInput, correctNumber) {
+    if (userInput === correctNumber){
+        return true;} else { 
+        return false;
+    }
 }

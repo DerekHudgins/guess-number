@@ -1,15 +1,39 @@
+import { userGuess } from "./utils.js";
+
 // import functions and grab DOM elements
-const inputNumber = document.getElementById ('user-input');
 const guessButton = document.getElementById ('guess-btn');
-const displayUserGuess = document.getElementById ('display-guess');
+const displayTooHigh = document.getElementById ('too-high');
+const displayTooLow = document.getElementById ('too-low');
+const displayWin = document.getElementById ('win');
 const displayUserOutcome = document.getElementById ('display-outcome');
 // initialize state
+let win = 0;
+let loss = 0;
 // set event listeners to update state and DOM
 
-guessTheNumber.addEventListener('click', () =>{
-
-    
-   
-    Math.ceil(Math.random() * 20))
-  
+guessButton.addEventListener('click', () =>{
+    let rightNumber = Math.ceil(Math.random() * 20);
+    const inputNumber = document.getElementById ('user-input').value;
+    const gNumber = Number(inputNumber);
+    if (userGuess(gNumber, rightNumber) === true){
+        win++; 
+    } else {
+        loss++;
+    }
+    if (gNumber > rightNumber){
+        displayTooHigh.style.display = 'block';
+        displayTooLow.style.display = 'none';
+        displayWin.style.display = 'none';
+    }
+    if (gNumber < rightNumber){
+        displayTooLow.style.display = 'block';
+        displayTooHigh.style.display = 'none';
+        displayWin.style.display = 'none';
+    }
+    if (gNumber === rightNumber){
+        displayTooLow.style.display = 'none';
+        displayTooHigh.style.display = 'none';
+        displayWin.style.display = 'block';
+    }
+    displayUserOutcome.textContent = `You have gotten the correct anwser ${win} / ${loss}`;
 });

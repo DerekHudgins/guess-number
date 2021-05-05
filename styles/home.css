@@ -1,1 +1,9 @@
-/* add home page styles here */
+#too-high{
+    display: none;
+  }
+  #too-low{
+    display: none;
+  }
+  #win{
+    display: none;
+  }
